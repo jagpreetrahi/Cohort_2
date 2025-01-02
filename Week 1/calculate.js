@@ -46,7 +46,11 @@ class Calculate{
               }
               
             }
-            return false; // valid character
+            
+            
+           //  evaluate if it is valid character
+           const result = new Function(`return ${expression}`)(); // create a new function which execute the epxression
+           return result;
             
         } catch (error) {
             throw new Error("This is the invalid character" , error)
@@ -62,4 +66,4 @@ console.log("The first multiply number is ",number.multiply(2));
 console.log("The first divide number is ",number.divide(2));
 console.log("THe total result is",number.getResult(2));
 console.log("THe clear result is",number.clear());
-console.log(number.calculate("10   +  abc "));
+console.log(number.calculate("10 +   2 *    (   6 - (4 + 1) / 2) + 7 "));

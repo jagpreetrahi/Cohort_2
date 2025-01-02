@@ -6,20 +6,22 @@ function calculateTotalSpentByCategory(transactions){
     const {category , price} = transaction;
    
     // if its already category or not in acc
-        if(!acc[category]){
-            acc[category] = [];  // make a group
+        if(!(acc[category] )){
+            acc[category]  = 0;  // it is to be number to store the totalspent for that category
+           
         }
+
         // add the transaction
-        let totalSpent = 0;
-        totalSpent += price
-        console.log(totalSpent);
+        acc[category] += price;
         
-        acc[category].push(totalSpent);
 
         return acc;
-    } , {});
+    } , {})
 
-    return groupedItems;
+    return Object.entries(groupedItems).map(([category , totalspent]) => ({
+        category,
+        totalspent
+    }))
 }
 
 
