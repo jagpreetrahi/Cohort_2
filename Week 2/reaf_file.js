@@ -1,6 +1,14 @@
-const fs = require('fs');
-fs.readFile('./Week2/read.txt' , 'utf-8' , (err , data) => {
-    console.log(data)
+const fs  = require('node:fs');
+
+
+fs.readFile("./read.txt" , "utf-8" , (err , data) => {
+      if(err){
+        console.log(err);
+      }
+   console.log(data);
 })
+
+
+
 
 

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Person Data</title>
+</head>
+<body>
+    <script>
+        function getAnimalData(){
+            // alert('hello');
+             fetch('https://fakerapi.it/api/v1/persons')
+             .then((response) => {
+                if(!response.ok){
+                    console.log("Invalid Data")
+                }
+                return response.json();
+             })
+          
+        }
+    
+    
+    </script>
+    <button onclick="getAnimalData()">Get Data</button>
+</body>
+</html>
