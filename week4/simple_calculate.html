@@ -13,22 +13,20 @@
         function getSum(){
           const first = document.getElementById("val1").value;
           const second = document.getElementById("val2").value;
-          const final = document.getElementById("final_sum");
-          final.innerHTML =  first + second;
-
+          const final_sum = document.getElementById(final_sum).value;
+         const res = fetch('https://localhost:3010/sum?a=' + first + "&b=" + second);
+        console.log(res);
         }
-        first.value = '';
-        second.value = '';
-       
+        
         
     </script>
     
-    <input type="text" id="val1" onfocus="this.value = ''">
+    <input type="text" id="val1" >
     <br>
     <br>
     <br>
     <input type="text" id="val2">
-    <button onclick="getSum() = ''">Calculate Sum</button>
+    <button onclick="getSum()">Calculate Sum</button>
     <div id="final_sum"></div>
     
 </body>
