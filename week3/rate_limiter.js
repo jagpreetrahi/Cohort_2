@@ -11,6 +11,7 @@ function ratelimiter(req , res ,next){
     const userId = req.headers["user.Id"];
 
     if(ratelimiterForUser[userId]){
+        console.log(ratelimiterForUser[userId])
         ratelimiterForUser[userId] = ratelimiterForUser[userId] + 1;
         if(ratelimiterForUser[userId] > 5){
             res.status(404).send("no entry");
@@ -37,7 +38,7 @@ res.status(200).json({ msg: 'created dummy user' });
 });
 
 app.get('/requestCount', function(req, res) {
-res.status(200).json({ requestCount });
+     res.status(200).json({ratelimiterForUser});
 });
 
 
