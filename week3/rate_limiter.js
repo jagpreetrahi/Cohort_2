@@ -8,8 +8,8 @@ setTimeout(() => {
 }, 1000)
 
 function ratelimiter(req , res ,next){
-    const userId = req.headers["user.Id"];
-
+    const userId = req.headers["user.Id"]; // Or req.headers("user.id") -> here server extract the value of user.id header from request
+    // console.log(userId);
     if(ratelimiterForUser[userId]){
         console.log(ratelimiterForUser[userId])
         ratelimiterForUser[userId] = ratelimiterForUser[userId] + 1;

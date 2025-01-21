@@ -6,10 +6,10 @@ let errorcount = 0;
 let PORT = 5003
 
 
-
 app.get('/user', function(req, res) {
     throw new Error("User not found");
     res.status(200).json({ name: 'john' });
+
 });
   
 app.post('/user', function(req, res) {

@@ -34,7 +34,7 @@ app.post('/signup' ,  (req ,res) => {
 
     if(!userExit(username , password)){
         return res.status(403).json({
-            msg : "This user is not exits "
+            msg : "This user does not exits "
         })
     }
    var token = jwt.sign({username : username} , jwtPassword)
@@ -47,13 +47,13 @@ app.post('/signup' ,  (req ,res) => {
 
 app.get('/user' , function (req ,res){
     const token = req.headers.authorization;
-    console.log(token);
+   
     try {
         const decode = jwt.verify(token, jwtPassword);
-        console.log(decode);
+        
         const username = decode.username;
 
-        console.log(username);
+       
         if(!dummy_users.some((user) => user.username === username)){
             return res.status(404).json({
                 msg : "Unauthorizes Access"

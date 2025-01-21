@@ -9,7 +9,7 @@ function avg_time(req , res, next){
 
     const start_time = Date.now();
 
-    // finish event
+    // finish event -> it ensure that a response sends to the client successfully
     res.on('finish' , () => {
         const end_time = Date.now();
         const duration = end_time - start_time;
