@@ -6,20 +6,8 @@
     <title>Simple Calculate</title>
 </head>
 <body>
-
-    <script>
-        
-
-        function getSum(){
-          const first = document.getElementById("val1").value;
-          const second = document.getElementById("val2").value;
-          const final_sum = document.getElementById(final_sum).value;
-         const res = fetch('https://localhost:3010/sum?a=' + first + "&b=" + second);
-        console.log(res);
-        }
-        
-        
-    </script>
+    <div id="final_sum"></div>
+    
     
     <input type="text" id="val1" >
     <br>
@@ -27,7 +15,27 @@
     <br>
     <input type="text" id="val2">
     <button onclick="getSum()">Calculate Sum</button>
-    <div id="final_sum"></div>
+
+    <script>
+        
+
+        function getSum(){
+          const first = document.getElementById("val1").value;
+          console.log(first);
+          const second = document.getElementById("val2").value;
+          console.log(second);
+          const final_sum = document.getElementById("final_sum");
+          fetch(`https://localhost:3000/sum?a=${first}&b=${second}`)
+          .then(async(res) => {
+              const json = res.json();
+              final_sum.innerHTML = json.sum
+          })
+           
+        }
+        
+        
+    </script>
+  
     
 </body>
 </html>
